@@ -565,6 +565,7 @@ class Supervisor(PoolThread):
         except RestartFreqExceeded:
             pool.close()
             pool.join()
+            pool.terminate()
             raise
         debug('worker handler exiting')
 
